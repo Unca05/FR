@@ -1,0 +1,98 @@
+:: StoryTitle
+Untitled Story
+
+
+:: StoryData
+{
+  "ifid": "23F2F51D-D28D-411E-9895-CC893A6D675D",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "1",
+  "zoom": 1
+}
+
+
+:: 1 {"position":"275,550","size":"100,100"}
+당신의 캐릭터 이름을 입력하세요. 
+<<textbox '$name' ''>>
+<<button '확인'>> <<goto '2'>> <</button>> 
+
+
+:: 2 {"position":"375,550","size":"100,100"}
+당신의 캐릭터를 설정해주세요:  
+(각 항목에서 **한 가지만** 선택할 수 있습니다)
+
+---
+
+**성별**  
+<<radiobutton "$gender" "남자">> 남자 
+<<radiobutton "$gender" "여자">> 여자  
+<<radiobutton "$gender" "기타">> 기타  
+
+---
+
+**체형**  
+<<radiobutton "$body" "슬림">> 슬림  
+<<radiobutton "$body" "보통">> 보통  
+<<radiobutton "$body" "근육질">> 근육질  
+
+---
+
+**피부색**  
+<<radiobutton "$skin" "밝은 피부">> 밝은 피부  
+<<radiobutton "$skin" "보통 피부">> 보통 피부  
+<<radiobutton "$skin" "어두운 피부">> 어두운 피부  
+
+---
+
+**눈 색**  
+<<radiobutton "$eye" "갈색">> 갈색  
+<<radiobutton "$eye" "파랑">> 파랑  
+<<radiobutton "$eye" "초록">> 초록  
+<<radiobutton "$eye" "회색">> 회색  
+
+---
+
+**머리색**  
+<<radiobutton "$hair" "검정">> 검정  
+<<radiobutton "$hair" "금발">> 금발  
+<<radiobutton "$hair" "빨강">> 빨강  
+<<radiobutton "$hair" "은색">> 은색  
+
+---
+
+**성격**  
+<<radiobutton "$pers" "용감한">> 용감한  
+<<radiobutton "$pers" "차분한">> 차분한  
+<<radiobutton "$pers" "장난기 많은">> 장난기 많은  
+<<radiobutton "$pers" "수줍은">> 수줍은  
+
+<br><br>
+<<button "완료">>
+    <<if $gender and $body and $skin and $eye and $hair and $pers>>
+        <<goto "3">>
+    <<else>>
+        모든 항목을 선택해주세요!
+    <</if>>
+<</button>>
+
+
+
+:: 3 {"position":"300,675","size":"100,100"}
+당신의 캐릭터 설정은 다음과 같습니다:
+
+- 이름 : $name
+- 성별: $gender
+- 체형: $body 
+- 피부색: $skin  
+- 눈 색: $eye
+- 머리색: $hair  
+- 성격: $pers
+
+[[다음->4]]
+[[재설정->1]]
+
+
+
+:: 4 {"position":"300,800","size":"100,100"}
+
